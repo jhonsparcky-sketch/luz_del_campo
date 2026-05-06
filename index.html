@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz del Campo - Tienda Virtual</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background: #fff; }
+        nav { background: #1B5E20; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .nav-logo { display: flex; align-items: center; gap: 10px; padding: 12px 0; }
+        .nav-logo img { height: 50px; }
+        .nav-logo span { color: #fff; font-size: 1.3em; font-weight: 700; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: #A5D6A7; text-decoration: none; font-weight: 600; font-size: 0.95em; transition: color 0.2s; }
+        .nav-links a:hover { color: #fff; }
+        .hero { background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%); padding: 80px 40px; text-align: center; color: #fff; }
+        .slogan { display: inline-block; background: #F9A825; color: #1B5E20; font-weight: 700; padding: 8px 24px; border-radius: 20px; margin-bottom: 20px; font-size: 1em; letter-spacing: 1px; }
+        .hero h1 { font-size: 3em; margin-bottom: 16px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.15em; color: #C8E6C9; max-width: 600px; margin: 0 auto 30px auto; line-height: 1.7; }
+        .btn-wa { display: inline-block; background: #25D366; color: #fff; padding: 16px 36px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1em; transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-wa:hover { background: #128C7E; transform: translateY(-2px); }
+        section { padding: 60px 40px; }
+        section:nth-child(even) { background: #F9FBF9; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2em; color: #2E7D32; margin-bottom: 8px; }
+        .section-title p { color: #666; font-size: 1.05em; }
+        .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+        .cat-tile { background: linear-gradient(135deg, #2E7D32, #388E3C); border-radius: 16px; padding: 30px 20px; text-align: center; color: #fff; font-weight: 700; font-size: 1em; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(46,125,50,0.2); }
+        .cat-tile:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(46,125,50,0.3); }
+        .cat-emoji { font-size: 2.5em; display: block; margin-bottom: 10px; }
+        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto 30px auto; }
+        .product-card { background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 28px 20px; text-align: center; border-top: 4px solid #2E7D32; transition: transform 0.2s, box-shadow 0.2s; }
+        .product-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(46,125,50,0.15); }
+        .product-emoji { font-size: 3em; display: block; margin-bottom: 12px; }
+        .product-card h3 { color: #2E7D32; font-size: 1.1em; margin-bottom: 8px; }
+        .product-card p { font-size: 0.88em; color: #777; margin-bottom: 12px; line-height: 1.5; }
+        .product-price { font-size: 1.4em; font-weight: 700; color: #F9A825; }
+        .values-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 1000px; margin: 30px auto 0 auto; }
+        .value-item { background: #F1F8E9; border-radius: 12px; padding: 24px 16px; text-align: center; border-left: 4px solid #2E7D32; }
+        .value-icon { font-size: 2.2em; margin-bottom: 10px; }
+        .value-item h4 { color: #2E7D32; font-size: 0.88em; font-weight: 700; }
+        .about-text { max-width: 700px; margin: 0 auto; font-size: 1.05em; line-height: 1.8; color: #444; text-align: center; }
+        .contact-box { background: linear-gradient(135deg, #1B5E20, #2E7D32); border-radius: 20px; padding: 50px 40px; color: #fff; text-align: center; max-width: 700px; margin: 0 auto; box-shadow: 0 10px 40px rgba(27,94,32,0.3); }
+        .contact-box h3 { font-size: 1.8em; color: #A5D6A7; margin-bottom: 12px; }
+        .contact-box p { color: #C8E6C9; margin-bottom: 24px; font-size: 1.05em; }
+        .contact-info span { display: block; margin: 8px 0; font-size: 1em; color: #E8F5E9; }
+        .btn-wa-white { display: inline-block; background: #fff; color: #2E7D32; padding: 14px 32px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1em; margin-top: 16px; transition: background 0.2s; }
+        .btn-wa-white:hover { background: #E8F5E9; }
+        footer { background: #1B5E20; color: #A5D6A7; text-align: center; padding: 30px 40px; font-size: 0.9em; }
+        footer p { margin: 4px 0; }
+        @media (max-width: 768px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } .products-grid { grid-template-columns: repeat(2, 1fr); } .values-grid { grid-template-columns: repeat(2, 1fr); } .hero h1 { font-size: 2em; } .nav-links { display: none; } }
+        @media (max-width: 480px) { .products-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <img src="logo-icono.png" alt="Luz del Campo">
+            <span>Luz del Campo</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#categorias">Categorias</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <section class="hero" id="inicio">
+        <span class="slogan">Del campo a tu hogar, fresco y natural</span>
+        <h1>Bienvenidos a Luz del Campo</h1>
+        <p>Tu tienda virtual de productos frescos y naturales, directamente desde la finca hasta tu hogar. Zona rural de Ibague, Lerida y Libano, Tolima.</p>
+        <a href="https://wa.me/573000000000" class="btn-wa" target="_blank">Pedir ahora por WhatsApp</a>
+    </section>
+    <section id="categorias">
+        <div class="section-title"><h2>Nuestras Categorias</h2><p>Productos frescos organizados para tu comodidad</p></div>
+        <div class="cat-grid">
+            <div class="cat-tile"><span class="cat-emoji">&#x1F966;</span>Verduras y Hortalizas</div>
+            <div class="cat-tile"><span class="cat-emoji">&#x1F34E;</span>Frutas Frescas</div>
+            <div class="cat-tile"><span class="cat-emoji">&#x1F95A;</span>Huevos y Lacteos</div>
+            <div class="cat-tile"><span class="cat-emoji">&#x1F33D;</span>Granos y Abarrotes</div>
+            <div class="cat-tile"><span class="cat-emoji">&#x1F414;</span>Carnes y Pollo</div>
+            <div class="cat-tile"><span class="cat-emoji">&#x1F33F;</span>Productos Naturales</div>
+        </div>
+    </section>
+    <section id="productos">
+        <div class="section-title"><h2>Productos Destacados</h2><p>Frescos, naturales y al mejor precio</p></div>
+        <div class="products-grid">
+            <div class="product-card"><span class="product-emoji">&#x1F345;</span><h3>Tomate Fresco</h3><p>Cultivado en finca, ideal para ensaladas. 1 kg.</p><span class="product-price">$3.000</span></div>
+            <div class="product-card"><span class="product-emoji">&#x1F95A;</span><h3>Huevos Campesinos</h3><p>100% naturales, gallinas de campo. Docena.</p><span class="product-price">$10.000</span></div>
+            <div class="product-card"><span class="product-emoji">&#x1F414;</span><h3>Pollo Criollo</h3><p>Alimentado naturalmente, sin hormonas. Unidad.</p><span class="product-price">$35.000</span></div>
+            <div class="product-card"><span class="product-emoji">&#x1F95B;</span><h3>Leche Fresca</h3><p>Directa de la finca, sin procesos industriales. Litro.</p><span class="product-price">$2.500</span></div>
+            <div class="product-card"><span class="product-emoji">&#x1F34C;</span><h3>Platano</h3><p>Fresco y de excelente calidad del campo tolimense. 1 kg.</p><span class="product-price">$2.000</span></div>
+            <div class="product-card"><span class="product-emoji">&#x1F36F;</span><h3>Miel Natural</h3><p>Pura y sin quimicos, directo del colmenar. 500 ml.</p><span class="product-price">$15.000</span></div>
+        </div>
+        <div style="text-align:center;"><a href="https://wa.me/573000000000" class="btn-wa" target="_blank">Hacer mi pedido por WhatsApp</a></div>
+    </section>
+    <section id="nosotros">
+        <div class="section-title"><h2>Quienes somos</h2></div>
+        <p class="about-text"><strong>Luz del Campo</strong> es una tienda virtual dedicada a ofrecer productos frescos y naturales directamente desde la finca hasta tu hogar. Nos enfocamos en brindar <strong>calidad, confianza y precios justos</strong> para nuestras familias y clientes de la zona rural de Ibague, Lerida, Libano y alrededores del Tolima.</p>
+        <div class="values-grid">
+            <div class="value-item"><div class="value-icon">&#x1F331;</div><h4>Productos frescos del campo</h4></div>
+            <div class="value-item"><div class="value-icon">&#x1F4B0;</div><h4>Precios justos</h4></div>
+            <div class="value-item"><div class="value-icon">&#x1F91D;</div><h4>Apoyo a la produccion local</h4></div>
+            <div class="value-item"><div class="value-icon">&#x1F69A;</div><h4>Entrega directa</h4></div>
+            <div class="value-item"><div class="value-icon">&#x2B50;</div><h4>Calidad garantizada</h4></div>
+        </div>
+    </section>
+    <section id="contacto">
+        <div class="contact-box">
+            <h3>Haz tu pedido ahora</h3>
+            <p>Contactanos por WhatsApp y recibe tu pedido directo en casa</p>
+            <div class="contact-info">
+                <span>Zona rural de Ibague, Lerida y Libano - Tolima</span>
+                <span>WhatsApp: +57 300 000 0000</span>
+                <span>Facebook: Luz del Campo</span>
+                <span>Atencion: Lunes a Sabado 7am - 7pm</span>
+            </div>
+            <a href="https://wa.me/573000000000" class="btn-wa-white" target="_blank">Escribirnos por WhatsApp</a>
+        </div>
+    </section>
+    <footer>
+        <p><strong>Luz del Campo</strong> - Del campo a tu hogar, fresco y natural</p>
+        <p>Tolima, Colombia | WhatsApp: +57 300 000 0000</p>
+        <p style="margin-top:10px; font-size:0.85em;">2025 Luz del Campo. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
